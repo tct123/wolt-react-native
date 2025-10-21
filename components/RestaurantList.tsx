@@ -16,17 +16,13 @@ const RestaurantList = () => {
   if (error) {
     return (
       <View style={{ padding: 16, alignItems: 'center' }}>
-        <Text style={{ color: Colors.dark, marginBottom: 8 }}>
-          Failed to load restaurants
-        </Text>
+        <Text style={{ color: Colors.dark, marginBottom: 8 }}>Failed to load restaurants</Text>
         <Text style={{ color: '#666' }}>
           {error instanceof Error ? error.message : 'Please try again later'}
         </Text>
       </View>
     );
   }
-
-  return (
 
   return (
     <>
