@@ -1,50 +1,32 @@
 import { CategoryList } from '@/components/CategoryList';
 import RestaurantHeader from '@/components/RestaurantHeader';
 import RestaurantList from '@/components/RestaurantList';
-
 import { Fonts } from '@/constants/theme';
-import { Stack } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 import Animated, { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
-const Page = () => {
-  const scrollOffset = useSharedValue(0);
+const HEADER_HEIGHT = 60;
+const RestaurantListPage = () => {
   const insets = useSafeAreaInsets();
+  const scrollOffset = useSharedValue(0);
 
   const scrollHandler = useAnimatedScrollHandler({
     onScroll: (event) => {
       scrollOffset.value = event.contentOffset.y;
     },
   });
-
   return (
     <View style={styles.container}>
-      <Stack.Screen
-        options={{
-          headerShown: false,
-        }}
-      />
-
-      {/* Animated Header */}
       <RestaurantHeader title="Stores" scrollOffset={scrollOffset} />
-
-      {/* Scrollable Content */}
       <Animated.ScrollView
         onScroll={scrollHandler}
         scrollEventThrottle={16}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingTop: insets.top + 60 }}>
-        {/* Page Title */}
+        contentContainerStyle={{ paddingTop: insets.top + HEADER_HEIGHT }}>
         <Text style={styles.pageTitle}>Stores</Text>
-
-        {/* Categories Section */}
         <CategoryList />
 
-        {/* All Restaurants Header */}
         <Text style={styles.allRestaurantsTitle}>All stores</Text>
-
-        {/* Restaurants List */}
         <RestaurantList />
       </Animated.ScrollView>
     </View>
@@ -54,25 +36,18 @@ const Page = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
   },
   pageTitle: {
-    fontFamily: Fonts.brandBold,
+    fontFamily: Fonts.brandBlack,
     fontSize: 30,
-    fontWeight: '900',
-    color: '#000',
-    marginBottom: 8,
+    marginBottom: 16,
     paddingHorizontal: 16,
   },
-
   allRestaurantsTitle: {
     fontFamily: Fonts.brandBold,
-    fontSize: 18,
-    fontWeight: '700',
-    color: '#000',
+    fontSize: 20,
     marginBottom: 16,
     paddingHorizontal: 16,
   },
 });
-
-export default Page;
+export default RestaurantListPage;
