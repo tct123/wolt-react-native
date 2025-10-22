@@ -2,9 +2,10 @@ import AppleAuthButton from '@/components/auth/AppleAuthButton';
 import GoogleAuthButton from '@/components/auth/GoogleAuthButton';
 import SmoothInfiniteScroll from '@/components/SmoothInfiniteScroll';
 import { Colors, Fonts } from '@/constants/theme';
+import * as Sentry from '@sentry/react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Link } from 'expo-router';
-import { Image, Linking, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, Image, Linking, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 
 export default function Index() {
@@ -57,6 +58,13 @@ export default function Index() {
             </Link>
           </Animated.View>
         </View>
+
+        <Button
+          title="Try!"
+          onPress={() => {
+            Sentry.captureException(new Error('First error'));
+          }}
+        />
 
         <Animated.View style={styles.privacyContainer} entering={FadeInDown.delay(400)}>
           <Text style={styles.privacyText}>
