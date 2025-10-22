@@ -4,7 +4,7 @@ import SmoothInfiniteScroll from '@/components/SmoothInfiniteScroll';
 import { Colors, Fonts } from '@/constants/theme';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Link } from 'expo-router';
-import { Image, Linking, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Button, Image, Linking, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 
 export default function Index() {
@@ -57,6 +57,18 @@ export default function Index() {
             </Link>
           </Animated.View>
         </View>
+
+        <Button
+          title="Try!"
+          onPress={() => {
+            // Cause an error that will be captured by Sentry
+            // Cause an error through some calculation
+            const result = 10 / 0;
+            if (!isFinite(result)) {
+              throw new Error('Calculation error: Division by zero occurred!');
+            }
+          }}
+        />
 
         <Animated.View style={styles.privacyContainer} entering={FadeInDown.delay(400)}>
           <Text style={styles.privacyText}>
