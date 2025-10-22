@@ -2,7 +2,6 @@ import AppleAuthButton from '@/components/auth/AppleAuthButton';
 import GoogleAuthButton from '@/components/auth/GoogleAuthButton';
 import SmoothInfiniteScroll from '@/components/SmoothInfiniteScroll';
 import { Colors, Fonts } from '@/constants/theme';
-import * as Sentry from '@sentry/react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Link } from 'expo-router';
 import { Button, Image, Linking, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
@@ -62,7 +61,12 @@ export default function Index() {
         <Button
           title="Try!"
           onPress={() => {
-            Sentry.captureException(new Error('First error'));
+            // Cause an error that will be captured by Sentry
+            // Cause an error through some calculation
+            const result = 10 / 0;
+            if (!isFinite(result)) {
+              throw new Error('Calculation error: Division by zero occurred!');
+            }
           }}
         />
 
