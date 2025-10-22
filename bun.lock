@@ -19,6 +19,8 @@
         "expo-image": "~3.0.10",
         "expo-linear-gradient": "~15.0.7",
         "expo-linking": "~8.0.8",
+        "expo-location": "~19.0.7",
+        "expo-maps": "~0.12.8",
         "expo-router": "~6.0.13",
         "expo-splash-screen": "~31.0.10",
         "expo-status-bar": "~3.0.8",
@@ -881,7 +883,11 @@
 
     "expo-linking": ["expo-linking@8.0.8", "", { "dependencies": { "expo-constants": "~18.0.8", "invariant": "^2.2.4" }, "peerDependencies": { "react": "*", "react-native": "*" } }, "sha512-MyeMcbFDKhXh4sDD1EHwd0uxFQNAc6VCrwBkNvvvufUsTYFq3glTA9Y8a+x78CPpjNqwNAamu74yIaIz7IEJyg=="],
 
+    "expo-location": ["expo-location@19.0.7", "", { "peerDependencies": { "expo": "*" } }, "sha512-YNkh4r9E6ECbPkBCAMG5A5yHDgS0pw+Rzyd0l2ZQlCtjkhlODB55nMCKr5CZnUI0mXTkaSm8CwfoCO8n2MpYfg=="],
+
     "expo-manifests": ["expo-manifests@1.0.8", "", { "dependencies": { "@expo/config": "~12.0.8", "expo-json-utils": "~0.15.0" }, "peerDependencies": { "expo": "*" } }, "sha512-nA5PwU2uiUd+2nkDWf9e71AuFAtbrb330g/ecvuu52bmaXtN8J8oiilc9BDvAX0gg2fbtOaZdEdjBYopt1jdlQ=="],
+
+    "expo-maps": ["expo-maps@0.12.8", "", { "peerDependencies": { "expo": "*", "react": "*", "react-native": "*" } }, "sha512-ZJOh7fLU6MuN2eaNV8CIhP++ymk3IFLdLomLNCRg8wmCicaPsp0O4bz0ZIVhy1RCiDDYs5COkMl3LcH0Qfq7JQ=="],
 
     "expo-modules-autolinking": ["expo-modules-autolinking@3.0.16", "", { "dependencies": { "@expo/spawn-async": "^1.7.2", "chalk": "^4.1.0", "commander": "^7.2.0", "glob": "^10.4.2", "require-from-string": "^2.0.2", "resolve-from": "^5.0.0" }, "bin": { "expo-modules-autolinking": "bin/expo-modules-autolinking.js" } }, "sha512-Ma8jLccB4Zj/ZAnCtxhTgiNnXSp1FNZnsyeGumsUQM08oDv7Mej3ShTh0VCHk+YDS0y39iKmooKtA5Eg9OLNyg=="],
 
