@@ -15,8 +15,8 @@ interface RestaurantHeaderProps {
   scrollOffset: SharedValue<number>;
 }
 
-const SCOLL_THRESHOLD_START = 50;
-const SCOLL_THRESHOLD_END = 80;
+const SCROLL_THRESHOLD_START = 50;
+const SCROLL_THRESHOLD_END = 80;
 
 const RestaurantDetailsHeader = ({ scrollOffset }: RestaurantHeaderProps) => {
   const insets = useSafeAreaInsets();
@@ -25,14 +25,14 @@ const RestaurantDetailsHeader = ({ scrollOffset }: RestaurantHeaderProps) => {
   const headerStyle = useAnimatedStyle(() => {
     const backgroundOpacity = interpolate(
       scrollOffset.value,
-      [SCOLL_THRESHOLD_START, SCOLL_THRESHOLD_END],
+      [SCROLL_THRESHOLD_START, SCROLL_THRESHOLD_END],
       [0, 1],
       Extrapolation.CLAMP
     );
 
     const shadowOpacity = interpolate(
       scrollOffset.value,
-      [SCOLL_THRESHOLD_START, SCOLL_THRESHOLD_END],
+      [SCROLL_THRESHOLD_START, SCROLL_THRESHOLD_END],
       [0, 0.1],
       Extrapolation.CLAMP
     );
@@ -46,7 +46,7 @@ const RestaurantDetailsHeader = ({ scrollOffset }: RestaurantHeaderProps) => {
   const searchBarStyle = useAnimatedStyle(() => {
     const backgroundOpacity = interpolate(
       scrollOffset.value,
-      [0, SCOLL_THRESHOLD_START],
+      [0, SCROLL_THRESHOLD_START],
       [0.9, 1],
       Extrapolation.CLAMP
     );
@@ -59,7 +59,7 @@ const RestaurantDetailsHeader = ({ scrollOffset }: RestaurantHeaderProps) => {
   const buttonStyle = useAnimatedStyle(() => {
     const opacity = interpolate(
       scrollOffset.value,
-      [0, SCOLL_THRESHOLD_END],
+      [0, SCROLL_THRESHOLD_END],
       [1, 0],
       Extrapolation.CLAMP
     );
@@ -72,7 +72,7 @@ const RestaurantDetailsHeader = ({ scrollOffset }: RestaurantHeaderProps) => {
   const buttonStyle2 = useAnimatedStyle(() => {
     const opacity = interpolate(
       scrollOffset.value,
-      [SCOLL_THRESHOLD_START * 0.3, SCOLL_THRESHOLD_END],
+      [SCROLL_THRESHOLD_START * 0.3, SCROLL_THRESHOLD_END],
       [0, 1],
       Extrapolation.CLAMP
     );
