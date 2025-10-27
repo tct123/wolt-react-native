@@ -1,4 +1,5 @@
 import { Colors } from '@/constants/theme';
+import { Button, ContextMenu, Host } from '@expo/ui/swift-ui';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
@@ -104,7 +105,21 @@ const RestaurantDetailsHeader = ({ scrollOffset }: RestaurantHeaderProps) => {
         </Animated.View>
 
         <Animated.View style={[styles.iconButton, buttonStyle2]}>
-          <Ionicons name="ellipsis-horizontal" size={24} />
+          {/* <Ionicons name="ellipsis-horizontal" size={24} /> */}
+          <Host matchContents>
+            <ContextMenu>
+              <ContextMenu.Items>
+                <Button systemImage="info.circle.fill" onPress={() => console.log('Pressed1')}>
+                  More info
+                </Button>
+                <Button systemImage="heart">Add to favorites</Button>
+                <Button systemImage="square.and.arrow.up">Share venue</Button>
+              </ContextMenu.Items>
+              <ContextMenu.Trigger>
+                <Button systemImage="ellipsis" color={Colors.dark} />
+              </ContextMenu.Trigger>
+            </ContextMenu>
+          </Host>
         </Animated.View>
       </View>
     </Animated.View>
