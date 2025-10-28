@@ -1,5 +1,5 @@
 import type { Dish } from '@/data/restaurant_menu';
-import { Restaurant } from '@/data/restaurants';
+import type { Restaurant } from '@/data/restaurants';
 import zustandStorage from '@/utils/zustandStorage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
@@ -12,7 +12,7 @@ export interface CartItem {
 interface CartStore {
   items: CartItem[];
   selectedRestaurant: Restaurant | null;
-  setSelectedRestaurant: (restaurant: Restaurant) => void;
+  setSelectedRestaurant: (restaurant: Restaurant | null) => void;
 
   total: number;
   totalItems: number;
@@ -41,9 +41,11 @@ export const useCartStore = create<CartStore>()(
       total: 0,
       totalItems: 0,
       selectedRestaurant: null,
-      setSelectedRestaurant: (restaurant: Restaurant) => set({ selectedRestaurant: restaurant }),
+      setSelectedRestaurant: (restaurant: Restaurant | null) =>
+        set({ selectedRestaurant: restaurant }),
       addItem: (dish: Dish, quantity = 1) =>
         set((state) => {
+          if (quantity <= 0) return state;
           const existingItem = state.items.find((item) => item.dish.id === dish.id);
 
           let newItems: CartItem[];
@@ -109,7 +111,7 @@ export const useCartStore = create<CartStore>()(
           };
         }),
 
-      clearCart: () => set({ items: [], total: 0, totalItems: 0 }),
+      clearCart: () => set({ items: [], total: 0, totalItems: 0, selectedRestaurant: null }),
 
       getItemQuantity: (dishId: number) => {
         const item = get().items.find((item) => item.dish.id === dishId);
