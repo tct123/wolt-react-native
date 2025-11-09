@@ -35,8 +35,8 @@ A feature-rich React Native clone of the Wolt food delivery app, showcasing mode
 Watch and build this Wolt Clone step by step:
 
 <p align="center">
-  <a href="https://youtu.be/TODO" target="_blank">
-    <img src="https://img.youtube.com/vi/TODO/maxresdefault.jpg" alt="Build a Wolt Clone with React Native" width="100%" />
+  <a href="https://youtu.be/aYftPYZJsy8" target="_blank">
+    <img src="https://img.youtube.com/vi/aYftPYZJsy8/maxresdefault.jpg" alt="Build a Wolt Clone with React Native" width="100%" />
   </a>
 </p>
 
