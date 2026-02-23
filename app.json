@@ -62,7 +62,8 @@
           "project": "wolte-video",
           "organization": "galaxies"
         }
-      ]
+      ],
+      "@sentry/react-native"
     ],
     "experiments": {
       "typedRoutes": true,
