@@ -79,7 +79,9 @@ const Page = () => {
       console.log('order created: ', result);
       clearCart();
       router.dismissTo('/restaurants');
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return (
@@ -212,7 +214,7 @@ const Page = () => {
           <View style={styles.section}>
             <Text style={styles.sectionHeader}>Add courier tip</Text>
             <Text style={styles.tipDescription}>
-              100% of your tip goes to your courier. It's an easy way to say thanks for great
+              100% of your tip goes to your courier. It&apos;s an easy way to say thanks for great
               service.
             </Text>
 
